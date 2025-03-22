@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library Study Timer</title>
+    <link rel="stylesheet" href="timer.css">
+</head>
+<body>
+    <div class="background"></div>
+    <div class="container">
+        <div id="setup" class="setup-screen">
+            <h1>Study Timer</h1>
+            <div class="time-buttons">
+                <button onclick="startTimer(10)">10 Minutes</button>
+                <button onclick="startTimer(20)">20 Minutes</button>
+                <button onclick="startTimer(30)">30 Minutes</button>
+            </div>
+            <div class="custom-time">
+                <input type="number" id="customMinutes" min="1" max="120" placeholder="Custom minutes">
+                <button onclick="startCustomTimer()">Start Custom Timer</button>
+            </div>
+        </div>
+
+        <div id="timer" class="timer-screen hidden">
+            <div class="time-display">00:00</div>
+            <div class="controls">
+                <button id="pauseBtn" onclick="toggleTimer()">
+                    <span class="pause-icon">⏸</span>
+                </button>
+                <button id="quitBtn" onclick="quitTimer()">
+                    <span class="quit-icon">✕</span>
+                </button>
+            </div>
+        </div>
+    </div>
+    <script src="timer.js"></script>
+</body>
+</html>

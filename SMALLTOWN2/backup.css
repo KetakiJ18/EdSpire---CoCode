@@ -1,0 +1,247 @@
+body
+{
+  padding:0;
+  margin:0;
+  background-color: #e4f9f5;
+  height:100vh;
+  width:100%;
+}
+.header
+{
+  background: linear-gradient(270deg, #6f4f30, #8b4513, #d2691e);
+  background-size: 400%;
+  margin-bottom: 110px;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+  position:relative;
+  width:100vw;
+  display:flex;
+  justify-content: space-between;
+  align-items: center;
+  padding:15px;
+  height:60px;
+  animation: gradient-animation 12s ease infinite;
+}
+
+@keyframes gradient-animation {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+.name
+{
+  font-size: 1.5rem;
+  color: white;
+}
+.hb
+{
+  font-size: 1rem;
+  position: relative;
+  right:50px;
+  color: white;
+}
+.main-container {
+  background-color: #e4f9f5;
+  width: 100%;
+  display: flex;
+  flex-direction: column; /* Stack the rows vertically */
+  justify-content: center; /* Center content vertically */
+  align-items: center; /* Center content horizontally */
+  position:relative;
+}
+
+.row {
+  display: flex;
+  justify-content: space-around; /* Evenly space the buttons horizontally */
+  gap: 200px; /* Space between buttons */
+  margin-bottom: 100px; /* Space between the rows */
+}
+
+.b {
+  width: 100px; /* Width of each button */
+  height: 100px; /* Height of each button */
+  background-color: #6f4f30; /* Button color */
+  color: white; /* Button text color */
+  border: none;
+  border-radius: 50px; /* Rounded corners */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.b:hover {
+  background-color: #8b4513; /* Lighter brown on hover */
+}
+.button-container {
+  text-align: center; /* Center the button and its description */
+}
+.desc
+{
+  font-family: cursive;
+  margin-top: 10px;
+  display:block;
+  font-size:20px;
+}
+#b1
+{
+  background-image: url(./images/dog-img\ copy.jpg);
+}
+.cloud1
+{
+  position:absolute;
+  right:50px;
+  top:40px;
+}
+.cloud2
+{
+  position:absolute;
+  left:50px;
+  top:250px;
+}
+.cloud3
+{
+  position:absolute;
+  right:200px;
+  top:450px;
+  z-index: 0;
+}
+.grass-footer {
+  background-color: #228B22; /* Grass green color */
+  clip-path: polygon(0 100%, 100% 100%, 100% 40%, 90% 30%, 80% 40%, 70% 20%, 60% 30%, 50% 20%, 40% 30%, 30% 20%, 20% 30%, 10% 40%, 0 40%); /* Creates the grass shape flipped */
+  text-align: center;
+  padding: 20px;
+  color: white;
+  font-size: 18px;
+  font-family: Arial, sans-serif;
+  width:100%;
+}
+
+
+/* Mobile devices (portrait) */
+@media screen and (max-width: 480px) {
+  .header {
+      flex-direction: column; /* Stack the header elements vertically */
+      padding: 10px;
+      height: auto;
+  }
+  .hb {
+      position: relative;
+      right: 0;
+      margin-top: 10px;
+  }
+  .name {
+      font-size: 1.2rem; /* Smaller font size for mobile */
+  }
+  .main-container {
+      padding: 10px;
+      position: relative;
+  }
+  .row {
+      flex-direction: column; /* Stack the buttons vertically */
+      gap: 20px; /* Reduce space between buttons */
+      margin-bottom: 50px;
+  }
+  .button-container {
+      width: 100%; 
+  }
+  .b {
+      width: 80px; /* Adjust button size */
+      height: 80px;
+      font-size: 14px; /* Adjust button text size */
+      
+  }
+  .desc {
+      font-size: 16px; /* Smaller description text */
+  }
+  .cloud1, .cloud2, .cloud3 {
+      height: 40px;
+  }
+  .grass-footer {
+      padding: 15px;
+      font-size: 16px;
+  }
+}
+
+/* Tablet devices (portrait) */
+@media screen and (min-width: 481px) and (max-width: 768px) {
+  .header {
+      flex-direction: column; /* Stack header elements vertically */
+      padding: 15px;
+      height: auto;
+  }
+  .hb {
+      position: relative;
+      right: 0;
+      margin-top: 10px;
+  }
+  .name {
+      font-size: 1.4rem;
+  }
+  .main-container {
+      padding: 20px;
+  }
+  .row {
+      flex-direction: column; /* Stack buttons vertically */
+      gap: 40px; /* Space between buttons */
+  }
+  .button-container {
+      width: 100%;
+  }
+  .b {
+      width: 90px; /* Adjust button size */
+      height: 90px;
+      font-size: 16px; /* Adjust button text size */
+  }
+  .desc {
+      font-size: 18px; /* Adjust description text size */
+  }
+  .cloud1, .cloud2, .cloud3 {
+      height: 50px;
+  }
+  .grass-footer {
+      padding: 20px;
+      font-size: 18px;
+  }
+}
+
+/* Large devices (landscape and above) */
+@media screen and (min-width: 769px) {
+  .header {
+      flex-direction: row; /* Keep header items in a row */
+      padding: 15px;
+  }
+  .name {
+      font-size: 1.8rem; /* Larger font size */
+  }
+  .hb {
+      position: relative;
+      right: 50px;
+  }
+  .main-container {
+      padding: 40px;
+  }
+  .row {
+      flex-direction: row; /* Keep buttons in a row */
+      gap: 200px; /* Space between buttons */
+  }
+  .b {
+      width: 100px; /* Default button size */
+      height: 100px;
+      font-size: 18px; /* Default font size */
+  }
+  .desc {
+      font-size: 20px; /* Default description font size */
+  }
+  .cloud1, .cloud2, .cloud3 {
+      height: 60px;
+  }
+  .grass-footer {
+      padding: 20px;
+      font-size: 18px;
+  }
+}

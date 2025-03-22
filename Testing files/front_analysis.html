@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>File Upload</title>
+</head>
+<body>
+    <h2>Upload Your File</h2>
+    <form id="uploadForm" enctype="multipart/form-data">
+        <input type="file" name="file" id="fileInput" required>
+        <button type="submit">Upload</button>
+    </form>
+
+    <!-- Add the JavaScript code here -->
+    <script>
+        document.getElementById('uploadForm').addEventListener('submit', function(event) {
+            event.preventDefault();
+            const fileInput = document.getElementById('fileInput');
+            const formData = new FormData();
+            formData.append('file', fileInput.files[0]);
+
+            fetch('http://127.0.0.1:5000/upload', {
+                method: 'POST',
+                body: formData,
+            })
+            .then(response => response.json())
+            .then(data => {
+                console.log('File uploaded successfully:', data);
+                const rankedTopics = data.ranked_topics;
+                
+                // Display ranked topics in a table
+                let outputHtml = '<h3>Ranked Topics</h3><table border="1"><tr><th>Topic</th><th>Count</th></tr>';
+                rankedTopics.forEach(topic => {
+                    outputHtml += `<tr><td>${topic[0]}</td><td>${topic[1]}</td></tr>`;
+                });
+                outputHtml += '</table>';
+                
+                // Insert the table into the DOM
+                document.body.insertAdjacentHTML('beforeend', outputHtml);
+            })
+            .catch(error => {
+                console.error('Error uploading file:', error);
+                const errorMessage = `<p style="color: red;">Error uploading file: ${error.message}</p>`;
+                document.body.insertAdjacentHTML('beforeend', errorMessage);
+            });
+        });
+    </script>
+</body>
+</html>

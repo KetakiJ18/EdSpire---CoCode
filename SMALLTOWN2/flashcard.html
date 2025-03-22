@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Small Town Flashcards</title>
+    <link rel="stylesheet" href="flashcard.css">
+</head>
+<body>
+    <div class="container">
+        <div class="upload-section">
+            <h1>Chapter Flashcards</h1>
+            <div class="upload-box" id="uploadBox">
+                <input type="file" id="pdfInput" accept=".pdf" hidden>
+                <div class="upload-content">
+                    <div class="upload-icon">📚</div>
+                    <p>Drop your chapter PDF here or <span class="browse-text">browse</span></p>
+                </div>
+            </div>
+        </div>
+
+        <div class="carousel-container" id="carouselContainer">
+            <button class="nav-btn prev-btn" id="prevBtn">❮</button>
+            
+            <div class="flashcard-container">
+                <div class="flashcard" id="flashcard">
+                    <div class="flashcard-inner">
+                        <div class="flashcard-front">
+                            <h2>Question</h2>
+                            <p id="questionText">What is the capital of France?</p>
+                        </div>
+                        <div class="flashcard-back">
+                            <h2>Answer</h2>
+                            <p id="answerText">Paris</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="nav-btn next-btn" id="nextBtn">❯</button>
+        </div>
+    </div>
+    <script src="flashcard.js"></script>
+</body>
+</html>

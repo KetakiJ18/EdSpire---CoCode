@@ -1,0 +1,35 @@
+/* White container for all content */
+.container {
+  background-color: white;
+  border-radius: 10px;  /* Rounded corners */
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); /* Light shadow */
+  padding: 20px;
+  max-width: 600px; /* Adjust width */
+  margin: 50px auto; /* Centering */
+  text-align: center;
+}
+
+/* Styling for all buttons */
+button {
+  background-color: #8B4513; /* Brown */
+  color: white;
+  border: none;
+  padding: 12px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+  margin: 5px;
+}
+
+/* Hover effect for buttons */
+button:hover {
+  background-color: #6A2E0C; /* Darker brown */
+}
+
+/* Spacing for filenames */
+span {
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+}

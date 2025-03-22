@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Past Papers & Syllabus</title>
+    <link rel="stylesheet" href="/static/cafe.css"> 
+    <style>
+        #topicsList {
+            list-style-type: none; 
+            padding-left: 0; 
+        }
+    </style>
+</head>
+<body bgcolor="#f4ede4">
+    <div class="container">
+        <h1>EdSpire Past Paper Analysis</h1><br>
+        <h2>Upload Past Papers & Syllabus</h2><br>
+        
+        <label for="papers">Upload Past Papers (ZIP):</label>
+        <input type="file" id="papers" accept=".zip" style="display: none;">
+        <button id="choosePapers">Choose Past Papers</button>
+        <span id="papersFileName" style="display: none;"></span><br><br>
+
+        <label for="syllabus">Upload Syllabus (PDF):</label>
+        <input type="file" id="syllabus" accept=".pdf" style="display: none;">
+        <button id="chooseSyllabus">Choose Syllabus</button>
+        <span id="syllabusFileName" style="display: none;"></span><br><br>
+
+        <button id="uploadButton">Upload</button>
+        <button id="resetButton">Reset</button><br><br>
+        
+        <div id="loading" style="display: none;">Uploading...</div>
+        <div id="results" style="display: none;">
+            <h3>Analysis Results</h3>
+            <h3>Topic Wise Importance:</h3>
+            <ul id="topicsList"></ul>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('choosePapers').addEventListener('click', function() {
+            document.getElementById('papers').click(); 
+        });
+
+        document.getElementById('chooseSyllabus').addEventListener('click', function() {
+            document.getElementById('syllabus').click(); 
+        });
+
+        document.getElementById('papers').addEventListener('change', function() {
+            const fileName = this.files[0]?.name; 
+            if (fileName) {
+                document.getElementById('choosePapers').style.display = 'none'; 
+                document.getElementById('papersFileName').style.display = 'inline'; 
+                document.getElementById('papersFileName').textContent = fileName; 
+            }
+        });
+
+        document.getElementById('syllabus').addEventListener('change', function() {
+            const fileName = this.files[0]?.name; 
+            if (fileName) {
+                document.getElementById('chooseSyllabus').style.display = 'none'; 
+                document.getElementById('syllabusFileName').style.display = 'inline'; 
+                document.getElementById('syllabusFileName').textContent = fileName; 
+            }
+        });
+
+            document.getElementById('resetButton').addEventListener('click', function() {
+            document.getElementById('papers').value = '';
+            document.getElementById('syllabus').value = '';
+            
+            document.getElementById('choosePapers').style.display = 'inline';
+            document.getElementById('papersFileName').style.display = 'none';
+            document.getElementById('chooseSyllabus').style.display = 'inline';
+            document.getElementById('syllabusFileName').style.display = 'none';
+
+            document.getElementById('results').style.display = 'none';
+            document.getElementById('topicsList').innerHTML = '';
+        });
+    </script>
+
+    <script src="/static/cafe.js"></script> 
+</body>
+</html>
